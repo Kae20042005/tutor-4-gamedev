@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://3xl0vpeu0deo"]
+
+[ext_resource type="Script" uid="uid://dpxxtxlxlpfx7" path="res://scenes/PlayerYellow.gd" id="1_doq1l"]
+[ext_resource type="Texture2D" uid="uid://5n75lhy5bn08" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_climb1.png" id="2_rv7rq"]
+[ext_resource type="Texture2D" uid="uid://dcxvcx2lewegr" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_climb2.png" id="3_laijo"]
+[ext_resource type="Texture2D" uid="uid://c0w8wdhc0vfjf" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_stand.png" id="4_gbm6g"]
+[ext_resource type="Texture2D" uid="uid://ngvvj6sshthm" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_jump.png" id="5_kdr8m"]
+[ext_resource type="Texture2D" uid="uid://c387lw67xtj8k" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_walk1.png" id="6_kiwaq"]
+[ext_resource type="Texture2D" uid="uid://bufjdat1nv3rv" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Yellow/alienYellow_walk2.png" id="7_ol4db"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_doq1l"]
+radius = 40.5
+height = 135.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2i6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rv7rq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_laijo")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gbm6g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kdr8m")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kiwaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ol4db")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="PlayerYellow" type="CharacterBody2D" unique_id=2075749065]
+script = ExtResource("1_doq1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290747805]
+position = Vector2(-3.5, 3.5)
+shape = SubResource("CapsuleShape2D_doq1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1766110498]
+position = Vector2(-3, -57)
+sprite_frames = SubResource("SpriteFrames_a2i6q")
+animation = &"Walk"
+frame_progress = 0.75394607
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1439332654]

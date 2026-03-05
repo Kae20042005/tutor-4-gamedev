@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dr2kbmnpgm233"]
+
+[ext_resource type="Script" uid="uid://dy21fniqr4wna" path="res://scenes/FallingSaw.gd" id="1_5b7vt"]
+[ext_resource type="Texture2D" uid="uid://dvv3mspleuvvy" path="res://assets/kenney_platformerpack/PNG/Enemies/saw.png" id="1_frowf"]
+[ext_resource type="Texture2D" uid="uid://cgoa1m3nwy5mr" path="res://assets/kenney_platformerpack/PNG/Enemies/saw_move.png" id="2_5b7vt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j38y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_frowf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5b7vt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlvgc"]
+radius = 57.00877
+
+[node name="FallingSaw" type="RigidBody2D" unique_id=1067474360]
+scale = Vector2(0.5, 0.5)
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5b7vt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1166765438]
+sprite_frames = SubResource("SpriteFrames_4j38y")
+frame_progress = 0.0032166226
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926477367]
+shape = SubResource("CircleShape2D_nlvgc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_touch"]

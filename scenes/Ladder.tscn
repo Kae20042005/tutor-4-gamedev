@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b56qgsri62krv"]
+
+[ext_resource type="Script" uid="uid://b5gwev6gtfpmo" path="res://scenes/Ladder.gd" id="1_hhssl"]
+[ext_resource type="Texture2D" uid="uid://v5uvco02mbmh" path="res://assets/kenney_platformerpack/PNG/Tiles/ladderMid.png" id="1_kmedj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhssl"]
+size = Vector2(127, 127)
+
+[node name="Ladder" type="Area2D" unique_id=840046980]
+script = ExtResource("1_hhssl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=585013705]
+texture = ExtResource("1_kmedj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397526456]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hhssl")
+
+[connection signal="body_entered" from="." to="." method="_body_entered"]
+[connection signal="body_exited" from="." to="." method="_body_exited"]
